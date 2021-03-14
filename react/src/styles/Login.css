@@ -2,3 +2,9 @@
     margin-top: 15px;
     margin-bottom: 15px;
 }
+
+.form-error {
+  color: red;
+  font-size:15px;
+  margin-bottom:0;
+}
