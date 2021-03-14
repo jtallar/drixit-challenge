@@ -1,11 +1,16 @@
 var express = require("express");
+var bodyParser = require('body-parser');
+
 var app = express();
+
+// Create application/json parser
+var jsonParser = bodyParser.json()
 
 BASE_URL_ENV = "CHALLENGE_API_URL"
 app.set(BASE_URL_ENV, process.env.CHALLENGE_API_URL || "/api/v0");
 
-app.listen(3000, () => {
-    console.log("Server running on port 3000");
+app.listen(8080, () => {
+    console.log("Server running on port 8080");
 });
 
 app.get("/url", (req, res, next) => {
@@ -21,9 +26,16 @@ POST /api/v0/authenticate
 
 } => Promise<{ "jwt": "jwt-token" }> 
 */
-app.post(app.get(BASE_URL_ENV) + "/authenticate", (req, res, next) => {
+app.post(app.get(BASE_URL_ENV) + "/authenticate", jsonParser, (req, res, next) => {
     // If email and password are valid, this endpoint returns a valid token
-    console.log(req);
+    const user = req.body;
+    if (!user.email || !user.password) {
+        res.status(401).send();
+    }
+    // TODO: Access BD to check
+    res.send({
+        "jwt": "jwt-token"
+    });
 });
 
 // Endpoint: USER INFO
