@@ -1,0 +1,32 @@
+/* .App {
+  text-align: center;
+} */
+
+.App-content {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+body text, a, strong, p, h1, h2, h2.bold, h3, h4, h5, h6, label, span,
+.btn, a.page-link, .msg-title, .msg-content, .row, .modal,
+.custom-form-input, .custom-form-file,.custom-form-select{
+  font-family: 'Lato', sans-serif;
+}
+
+h1{
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+label {
+  font-size: 20px;
+}
