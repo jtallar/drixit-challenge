@@ -5,6 +5,8 @@ react/node_modules
 react/.pnp
 .pnp.js
 
+nodejs/node_modules
+
 # testing
 react/coverage
 

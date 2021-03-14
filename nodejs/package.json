@@ -1,0 +1,14 @@
+{
+  "name": "challenge-rest",
+  "version": "1.0.0",
+  "description": "Simple REST API for Drixit challenge.",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jtallar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
