@@ -31,6 +31,7 @@ app.post(app.get(BASE_URL_ENV) + "/authenticate", jsonParser, (req, res, next) =
     const user = req.body;
     if (!user.email || !user.password) {
         res.status(401).send();
+        return;
     }
     // TODO: Access BD to check
     res.send({
@@ -45,7 +46,31 @@ GET /api/v0/users/me
     "token": "jwt-token" 
 } => Promise<UserClient> 
 */
+
+// TODO: Asumo que el token viaja en un Authorization Bearer
 app.get(app.get(BASE_URL_ENV) + "/users/me", (req, res, next) => {
     // Fetch user info for token jwt-token
-    console.log(req);
+    if (!req.headers.authorization) {
+        res.status(401).send();
+        return;
+    }
+
+    const tokenArray = req.headers.authorization.split(" ");
+    if (tokenArray.length != 2 || tokenArray[0] !== 'Bearer') {
+        res.status(401).send();
+        return;
+    }
+    const token = tokenArray[1];
+    // console.log(Jwt.decode(token));
+    console.log(token);
+
+    res.send({
+        id: "info-drixit-2",
+        avatar: "https://toppng.com/uploads/preview/roger-berry-avatar-placeholder-11562991561rbrfzlng6h.png",
+        email: "info@drixit.com",
+        name: "Info",
+        surname: "Drixit",
+        age: 30,
+        role: "user"
+    });
 });

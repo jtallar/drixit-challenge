@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import './styles/App.css';
 import Login from './pages/Login'
 import UserInfo from './pages/UserInfo'
@@ -10,7 +10,10 @@ function App() {
         <div className="App-content">
           <Switch>
             <Route path="/user-info" component={UserInfo}/>
-            <Route path="/" component={Login}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/">
+                <Redirect to="/login" />
+            </Route>
           </Switch>
         </div>
       </div>
