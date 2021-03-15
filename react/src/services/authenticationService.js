@@ -1,9 +1,10 @@
-export default {
+const authFun = {
     login,
     logout,
     isLoggedIn,
     getAuthHeader
 }
+export default authFun;
 
 function login(email, password) {
     const loginURL = '/api/v0/authenticate';

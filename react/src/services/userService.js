@@ -1,8 +1,9 @@
 import authenticationService from '../services/authenticationService'
 
-export default {
+const userFun = {
     getUserInfo
 }
+export default userFun;
 
 function getUserInfo() {
     const userInfoURL = '/api/v0/users/me';

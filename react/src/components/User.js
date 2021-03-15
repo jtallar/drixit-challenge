@@ -1,8 +1,3 @@
-import { Component } from 'react'
-import { Redirect } from 'react-router-dom'
-import userService from '../services/userService'
-import authenticationService from '../services/authenticationService'
-
 export default function User ({user}) {
     if (!user) {
         return <><div></div></>
@@ -12,7 +7,7 @@ export default function User ({user}) {
         <>
             <div>
                 <div className="profile-img">
-                    <img src={user.avatar}/>
+                    <img src={user.avatar} alt="avatar"/>
                 </div>
                 <div className="row">
                     <div className="col-md-4">

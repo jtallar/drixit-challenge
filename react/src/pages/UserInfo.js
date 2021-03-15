@@ -7,7 +7,6 @@ import '../styles/UserInfo.css'
 
 export default function UserInfo () {
     const [user, setUser] = useState({});
-    const [redirect, setRedirect] = useState(null);
     const history = useHistory();
 
     useEffect(function () {
@@ -19,7 +18,7 @@ export default function UserInfo () {
                 authenticationService.logout();
                 history.replace("/login");
             });
-    }, []);
+    }, [history]);
 
     return (
         <div>
