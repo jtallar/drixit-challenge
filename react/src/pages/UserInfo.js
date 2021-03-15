@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import authenticationService from '../services/authenticationService'
 import userService from '../services/userService'
 import User from '../components/User'
@@ -22,6 +22,9 @@ export default function UserInfo () {
 
     return (
         <div>
+            <div className="text-center">
+                <Link to="/logout">Logout</Link>
+            </div>
             <h1>UserInfo</h1>
             <User user={user}/>
         </div>

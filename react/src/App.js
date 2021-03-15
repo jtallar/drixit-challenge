@@ -2,6 +2,7 @@ import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-do
 import './styles/App.css';
 import Login from './pages/Login'
 import UserInfo from './pages/UserInfo'
+import Logout from './pages/Logout'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           <Switch>
             <Route path="/user-info" component={UserInfo}/>
             <Route path="/login" component={Login}/>
+            <Route path="/logout" component={Logout}/>
             <Route path="/">
                 <Redirect to="/login" />
             </Route>
