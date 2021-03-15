@@ -30,7 +30,7 @@ export default function User ({user}) {
                         <label>Id</label>
                     </div>
                     <div className="col-md-6">
-                        <p>{user.id}</p>
+                        <p>{user._id}</p>
                     </div>
                 </div>
                 <div className="row">

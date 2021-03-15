@@ -24,8 +24,7 @@ function login(email, password) {
           localStorage.setItem('token', user.jwt);
 
           return user;
-      })
-      .catch(error => console.error('Error: ', error));
+      });
 }
 
 function logout() {
