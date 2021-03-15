@@ -44,7 +44,6 @@ export default class LoginForm extends Component {
             // Perform login
             authenticationService.login(this.state.email, this.state.password)
                 .then(response => {
-                    console.log("Client: ", response);
                     this.setState({
                         redirect: '/user-info'
                     });
