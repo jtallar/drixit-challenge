@@ -1,4 +1,5 @@
 ## MongoDB
+A MongoDB connection is required to run this api.
 
 # Create Database challenge
 In your MongoDB Terminal
