@@ -13,11 +13,11 @@ Para el desarrollo del back-end, se decidió desarrollar una API Rest en `Node J
     * Si el usuario existe pero la contraseña es inválida, se devuelve un código de error 401.
     * Si el usuario existe y la contraseña es correcta, se genera un token JWT con el email como dato y se lo retorna al cliente para que lo pueda almacenar.
 - Un endpoint de información del usuario en `/api/v0/users/me`. Éste endpoint requiere que el usuario esté autenticado, dado que solo se accede a la información del usuario logueado.
-    * Si no se recibe ningún token JWT en el header `Authorization`, se devuelve un código de error 401.
+    * Si no se recibe ningún token JWT en el header `Token`, se devuelve un código de error 401.
     * Si el token JWT recibido es incorrecto, ya sea porque fue modificado o bien por estar vencido, se devuelve un código de error 403.
     * Si el token JWT recibido es válido, se busca la información correspondiente al email almacenado en el token y se la envía al usuario, eliminando previamente el campo contraseña de la respuesta.
 
-Para mantener sesiones, se decidió utilizar tokens JWT dado que es una manera adecuada para mantener a un usuario autenticado sin guardar ningún estado en el servidor. Además, permite guardar información no sensible dentro de la misma (como el mail), de forma tal de conocer quién es el usuario que está haciendo el request en caso de necesitarlo. En este caso, es necesario en el endpoint de información de usuario. El token se envía a través del header `Authorization`, que suele ser lo más estándar. Cada vez que se corra el servidor, se generará un secreto de 64 caracteres que se utilizará para generar los tokens de acceso y verificarloss.
+Para mantener sesiones, se decidió utilizar tokens JWT dado que es una manera adecuada para mantener a un usuario autenticado sin guardar ningún estado en el servidor. Además, permite guardar información no sensible dentro de la misma (como el mail), de forma tal de conocer quién es el usuario que está haciendo el request en caso de necesitarlo. En este caso, es necesario en el endpoint de información de usuario. El token se envía a través del header `Token`, que suele ser lo más estándar. Cada vez que se corra el servidor, se generará un secreto de 64 caracteres que se utilizará para generar los tokens de acceso y verificarloss.
 
 No se utilizó `Typescript` dado que aún no tuve oportunidad de usarlo y prioricé enfocarme en el resto de los items del desarrollo.
 
@@ -29,7 +29,7 @@ La estructura de la aplicación se dividió en
 - `components`, donde se encuentran los dos componentes utilizados: LoginForm y User.
 - `services`, donde se encuentran los servicios que se comunicarán con la API Rest: authenticationService y userService.
 
-Para persistir el token JWT en el cliente, utilizamos Local Storage. Cuando se realiza un POST para autenticar al usuario, en el caso de recibir una respuesta satisfactoria, se almacena el token recibido en dicho almacenamiento. Cada vez que se requiera realizar un request con autenticación, se agregará el token en la request en un header `Authorization`. 
+Para persistir el token JWT en el cliente, utilizamos Local Storage. Cuando se realiza un POST para autenticar al usuario, en el caso de recibir una respuesta satisfactoria, se almacena el token recibido en dicho almacenamiento. Cada vez que se requiera realizar un request con autenticación, se agregará el token en la request en un header `Token`. 
 
 De esta manera, se puede recargar el sitio o cerrar el navegador manteniendo al usuario logueado (mientras sea dentro de la hora, dado que el token vence). Por ello, también se revisa si el usuario ya está logueado al ir a `/login`, en cuyo caso se redirige a `/user-info`.
 

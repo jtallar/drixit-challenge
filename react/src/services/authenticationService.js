@@ -40,7 +40,7 @@ function isLoggedIn() {
 function getAuthHeader() {
     const token = localStorage.getItem(ITEM_KEY);
     if (token) {
-        return { Authorization: `Bearer ${token}` };
+        return { Token: `Bearer ${token}` };
     }
     return {};
 }

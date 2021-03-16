@@ -31,7 +31,7 @@ app.set(TOKEN_ENV, process.env.TOKEN_SECRET || require('crypto').randomBytes(64)
 // Based on https://www.digitalocean.com/community/tutorials/nodejs-jwt-expressjs
 function authenticateToken(req, res, next) {
     // Gather the jwt access token from the request header
-    const authHeader = req.headers['authorization'];
+    const authHeader = req.headers['token'];
     const token = authHeader && authHeader.split(' ')[1];
     if (token == null) return res.sendStatus(401); // if there isn't any token
 
@@ -85,7 +85,7 @@ app.post(app.get(BASE_URL_ENV) + "/authenticate", jsonParser, async (req, res, n
 /* 
 GET /api/v0/users/me 
 { 
-    "Authorization": "jwt-token" // Header Authorization
+    "token": "jwt-token" // Header token
 } => Promise<UserClient> 
 */
 app.get(app.get(BASE_URL_ENV) + "/users/me", authenticateToken, async (req, res, next) => {
