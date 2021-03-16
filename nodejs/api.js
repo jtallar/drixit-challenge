@@ -85,7 +85,7 @@ app.post(app.get(BASE_URL_ENV) + "/authenticate", jsonParser, async (req, res, n
 /* 
 GET /api/v0/users/me 
 { 
-    "token": "jwt-token" // Header token
+    "token": "Bearer jwt-token" // Header token
 } => Promise<UserClient> 
 */
 app.get(app.get(BASE_URL_ENV) + "/users/me", authenticateToken, async (req, res, next) => {
