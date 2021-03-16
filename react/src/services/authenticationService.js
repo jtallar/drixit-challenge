@@ -6,6 +6,8 @@ const authFun = {
 }
 export default authFun;
 
+const ITEM_KEY = 'token';
+
 function login(email, password) {
     const loginURL = '/api/v0/authenticate';
     const data = {
@@ -21,22 +23,22 @@ function login(email, password) {
         }
       }).then(res => res.json())
       .then(user => {
-          localStorage.setItem('token', user.jwt);
+          localStorage.setItem(ITEM_KEY, user.jwt);
 
           return user;
       });
 }
 
 function logout() {
-    localStorage.removeItem('token');
+    localStorage.removeItem(ITEM_KEY);
 }
 
 function isLoggedIn() {
-    return !!(localStorage.getItem('token'));
+    return !!(localStorage.getItem(ITEM_KEY));
 }
 
 function getAuthHeader() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem(ITEM_KEY);
     if (token) {
         return { Authorization: `Bearer ${token}` };
     }

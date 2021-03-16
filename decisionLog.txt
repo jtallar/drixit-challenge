@@ -1,5 +1,0 @@
-Dudas:
-    - Esto va en español o en inglés?
-    - Validación de mail --> Solo formato por front o se supone que tengo que ir al server a validarlo? 
-    MongoDB no te valida absolutamente nada, podría ser un acceso innecesario.
-    - En el get, puedo mandar el token por un header de Authentication?

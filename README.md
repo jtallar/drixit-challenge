@@ -1,4 +1,5 @@
 # Drixit Challenge
+To use this app, you should be running three things: MongoDB, Rest API and React JS app.
 
 ## Database
 MongoDB should be running at `localhost:27017`.
@@ -20,4 +21,4 @@ React JS application. To run the app:
 React JS application will be running at `localhost:3000`.
 
 ## Decision Log
-All decisions made can be found in `decisionLog.txt`
+All decisions made can be found in `decisionLog.md`

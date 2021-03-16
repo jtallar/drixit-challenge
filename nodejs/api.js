@@ -42,7 +42,7 @@ function authenticateToken(req, res, next) {
     })
 }
 
-// Generate JWT access token from email. Expires in 15 minutes
+// Generate JWT access token from email. Expires in 60 minutes
 function generateAccessToken(email) {
     return jwt.sign({data: email}, app.get(TOKEN_ENV), { expiresIn: '1h' });
 }
@@ -85,10 +85,9 @@ app.post(app.get(BASE_URL_ENV) + "/authenticate", jsonParser, async (req, res, n
 /* 
 GET /api/v0/users/me 
 { 
-    "token": "jwt-token" 
+    "Authorization": "jwt-token" // Header Authorization
 } => Promise<UserClient> 
 */
-// TODO: Asumo que el token viaja en un Authorization Bearer
 app.get(app.get(BASE_URL_ENV) + "/users/me", authenticateToken, async (req, res, next) => {
     // If token valid, return user info
     user = await getUserByEmail(req.user.data);

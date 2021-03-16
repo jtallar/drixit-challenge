@@ -29,7 +29,6 @@ export default class LoginForm extends Component {
 
     handleSubmit(event) {
         if (!this.state.showPassword) {
-            // TODO: Check if I should validate with backend
             if (this.state.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
                 this.setState({
                     invalidEmail: false,
