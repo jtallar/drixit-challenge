@@ -5,7 +5,7 @@ To use this app, you should be running three things: MongoDB, Rest API and React
 MongoDB should be running at `localhost:27017`.
 
 ## Back-End
-NodeJS application using Express. To run the Rest API:
+NodeJS application using Express. All files related can be found in `/nodejs`. To run the Rest API:
 1. `cd nodejs`
 2. `npm install`
 3. `node api.js`
@@ -13,7 +13,7 @@ NodeJS application using Express. To run the Rest API:
 Rest API will be running at `localhost:8080` and its base URL will be `/api/v0`.
 
 ## Front-End
-React JS application. To run the app:
+React JS application. All files related can be found in `/react`. To run the app:
 1. `cd react`
 2. `npm install`
 3. `npm start`
