@@ -15,6 +15,9 @@ Rest API will be running at `localhost:8080` and its base URL will be `/api/v0`.
 React JS application. To run the app:
 1. `cd react`
 2. `npm install`
-3. `npm run`
+3. `npm start`
 
 React JS application will be running at `localhost:3000`.
+
+## Decision Log
+All decisions made can be found in `decisionLog.txt`
